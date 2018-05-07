@@ -21,7 +21,7 @@ class Command(BaseCommand):
             ('James', 'Hendrix', 'Jimi Hendrix', 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Jimi_Hendrix_1967.png', 90, 'rock'),
             ('Edward', 'Sheeran', 'Ed Sheeran', 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Ed_Sheeran_2013.jpg/500px-Ed_Sheeran_2013.jpg', 75, 'pop'),
         ]
-        artists_ids = []
+        artists = []
         for first_name, last_name, artistic_name, picture_url, popularity, genre in ARTISTS:
             artist = Artist.objects.create(
                 first_name=first_name,
@@ -31,16 +31,16 @@ class Command(BaseCommand):
                 popularity=popularity,
                 genre=genre
             )
-            artists_ids.append(artist.id)
+            artists.append(artist)
 
         SONGS = [
-            (artists_ids[0], 'Superstition', 'Talking book'),
-            (artists_ids[0], 'Higher Ground', 'Innervisions'),
-            (artists_ids[2], 'Castle on the Hill', 'Divide'),
+            (artists[0], 'Superstition', 'Talking book'),
+            (artists[0], 'Higher Ground', 'Innervisions'),
+            (artists[2], 'Castle on the Hill', 'Divide'),
         ]
-        for artist_id, title, album_name in SONGS:
+        for artist, title, album_name in SONGS:
             Song.objects.create(
-                artist_id=artist_id,
+                artist=artist,
                 title=title,
                 album_name=album_name
             )
