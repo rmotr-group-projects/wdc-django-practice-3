@@ -24,7 +24,7 @@ class ORMExerciesTestCase(TestCase):
 
     def test_task_2_artists_get_by_artistic_name(self):
         """Should return the artist which artistic name is Jimi Hendrix"""
-        return Artist.objects.get(artistic_name='Jimi Hendrix')
+        assert Artist.objects.get(artistic_name='Jimi Hendrix')
 
         artist = task_2_artists_get_by_artistic_name()
         assert artist.artistic_name == 'Jimi Hendrix'

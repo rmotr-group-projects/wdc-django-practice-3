@@ -24,12 +24,28 @@ If you run the development server with `$ make runserver`, you'll be able to tes
 
 #### Part 1 - Working with HTML Forms
 
-The main goal to this part is to learn how to work with HTML Forms and handle inside the views the data that you send vía POST HTTP methods. There already is an example done for you that you can check under `http://localhost:8080/artists/`. You will find a list of artists with their songs, and a form to create a new Song for an Artist. It will look like this:
+The main goal to this part is to learn how to work with HTML Forms and handle inside the views the data that you send vía POST HTTP methods.
 
-<img src="https://user-images.githubusercontent.com/2788551/39728896-8a8d1bac-522f-11e8-92a9-05267a5a954f.png" width="50%" height="50%">
+The very first thing that we'll ask you to do, is to link the `Song` and `Artist` models each other. If you remember from last practice, the `Song` model was "linked" to the `Artist` by an `artist_id`, which was an IntegerField. Now we want you to link both models by a `ForeignKey` so you can use all the advantages that Django provides with that type of association.
+
+Once the `Song` model is linked with the `Artist` by a ForeignKey, you'll need to create a new Migration and migrate it, doing:
+
+```bash
+$ make makemigrations
+$ make migrate
+```
+
+There's a script provided to you that loads some initial data, so you can start with some objects stored in the database. You can run it by doing:
+
+```bash
+$ make load_initial_data
+```
+
+There's also an example done for you that you can check under `http://localhost:8080/artists/`. You will find a list of artists with their songs, and a form to create a new Song for an Artist. It will look like this:
+
+<img src="https://user-images.githubusercontent.com/2788551/39730245-de2b83aa-5236-11e8-9a2b-059961c5a16c.png" width="50%" height="50%">
 
 Your task is building a Form for adding a new Artist to the list, and another one for deleting it. Both of those actions must have their views and URLs associated.
-Also, if you remember from last practice, the `Song` model was "linked" to the `Artist` by an `artist_id`, which was an IntegerField. Now we want you to link both models by a `ForeignKey` so you can use all the advantages that Django provides with that type of association.
 
 After adding the `artist` ForeignKey field to the `Song` model, implementing the views with their URLs and completing the `templates/index.html` template with the extra two forms, the result must look something like this:
 
