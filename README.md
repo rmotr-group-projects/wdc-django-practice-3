@@ -43,7 +43,7 @@ $ make load_initial_data
 
 There's also an example done for you that you can check under `http://localhost:8080/artists/`. You will find a list of artists with their songs, and a form to create a new Song for an Artist. It will look like this:
 
-<img src="https://user-images.githubusercontent.com/2788551/39728896-8a8d1bac-522f-11e8-92a9-05267a5a954f.png" width="50%" height="50%">
+<img src="https://user-images.githubusercontent.com/2788551/39730245-de2b83aa-5236-11e8-9a2b-059961c5a16c.png" width="50%" height="50%">
 
 Your task is building a Form for adding a new Artist to the list, and another one for deleting it. Both of those actions must have their views and URLs associated.
 
