@@ -25,7 +25,9 @@ If you run the development server with `$ make runserver`, you'll be able to tes
 #### Part 1 - Working with HTML Forms
 
 The main goal to this part is to learn how to work with HTML Forms and handle inside the views the data that you send vía POST HTTP methods.
+
 The very first thing that we'll ask you to do, is to link the `Song` and `Artist` models each other. If you remember from last practice, the `Song` model was "linked" to the `Artist` by an `artist_id`, which was an IntegerField. Now we want you to link both models by a `ForeignKey` so you can use all the advantages that Django provides with that type of association.
+
 Once the `Song` model is linked with the `Artist` by a ForeignKey, you'll need to create a new Migration and migrate it, doing:
 
 ```bash
