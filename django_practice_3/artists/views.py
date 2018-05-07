@@ -51,7 +51,6 @@ def create_artist(request):
 
     popularity = int(popularity)
 
-    import ipdb; ipdb.set_trace()
     Artist.objects.create(
         artistic_name=artistic_name,
         first_name=first_name,
