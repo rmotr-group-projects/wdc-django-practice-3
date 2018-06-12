@@ -38,8 +38,24 @@ def delete_song(request):
 
 
 def create_artist(request):
-    pass
+    artistic_name = request.POST.get('artistic_name')
+    first_name = request.POST.get('first_name')
+    last_name = request.POST.get('last_name')
+    picture_url = request.POST.get('picture_url')
+    popularity = request.POST.get('popularity')
+    genre = request.POST.get('genre')
+    
+    try:
+        popularity = int(popularity)
+    except :
+        raise Exception("Invalid number for popularity")
 
+    Artist.objects.create(artistic_name = artistic_name, first_name = first_name,\
+    last_name = last_name,picture_url =picture_url ,popularity = popularity,genre =genre)
+    return redirect('artists')
 
 def delete_artist(request):
-    pass
+    artistic_name= request.POST.get('artist')
+    Artist.objects.filter(artistic_name=artistic_name).delete()
+    return redirect('artists')
+
