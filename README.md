@@ -1,6 +1,6 @@
 # Django practice nº 3
 
-### Setup Instruction
+### Setup Instructions
 
 ```bash
 $ mkvirtualenv -p $(which python3) django_practice_3
@@ -17,25 +17,25 @@ $ make runserver
 
 ### Your Tasks
 
-The structure of the whole Django project is built for you. Your job will be divided into two parts and multiple tasks for each part.
+The structure of the whole Django project is already built for you. Your job will be divided in two parts and multiple tasks for each part.
 
 If you run the development server with `$ make runserver`, you'll be able to test your views in the browser pointing to `http://localhost:8080/<some-path>`.
 
 
 #### Part 1 - Working with HTML Forms
 
-The main goal to this part is to learn how to work with HTML Forms and handle inside the views the data that you send vía POST HTTP methods.
+The main goal of this part is to learn how to work with HTML Forms and handle inside the views the data that you send via the POST HTTP method.
 
-The very first thing that we'll ask you to do, is to link the `Song` and `Artist` models each other. If you remember from last practice, the `Song` model was "linked" to the `Artist` by an `artist_id`, which was an IntegerField. Now we want you to link both models by a `ForeignKey` so you can use all the advantages that Django provides with that type of association.
+The very first thing that we'll ask you to do, is to connect the `Song` and `Artist` models to each other. If you remember from last practice, the `Song` model was "linked" to the `Artist` by an `artist_id`, which was an `IntegerField`. Now we want you to link both models by a `ForeignKey` so you can use all the advantages that Django provides with that type of association.
 
-Once the `Song` model is linked with the `Artist` by a ForeignKey, you'll need to create a new Migration and migrate it, doing:
+Once the `Song` model is connected to the `Artist` by a `ForeignKey`, you'll need to create a new Migration and apply it, by doing:
 
 ```bash
 $ make makemigrations
 $ make migrate
 ```
 
-There's a script provided to you that loads some initial data, so you can start with some objects stored in the database. You can run it by doing:
+There's a script provided for you that loads some initial data, so you can start with some objects stored in the database. You can run it by doing:
 
 ```bash
 $ make load_initial_data
