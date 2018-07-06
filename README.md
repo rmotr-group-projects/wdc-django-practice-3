@@ -53,15 +53,3 @@ After adding the `artist` ForeignKey field to the `Song` model, implementing the
 
 Remember to validate inside the view that all the model's required fields have been sent from the form.
 Just as a hint, notice that all data sent by a POST method from a form is type 'string'. So for example in the view, you will have the convert the `popularity` that you receive in `request.POST` from a string to an integer, which is the type that the model is asking for when you try to save it.
-
-
-#### Part 2 - ORM exercises
-
-For this part of the practice you will work inside the `artists/orm_exercises.py` file. You'll find there a couple of functions that are the tasks you have to implement, using the different ORM methods that are provided by the Django `objects` manager.
-Each of the task has its instructions as a docstring, so use them as a guide to know what you have to do.
-
-In order to check if you implemented them correctly, there are tests associated to each task inside the `artists/tests.py`. You can run the tests like this:
-
-```bash
-$ make test
-```
