@@ -26,4 +26,6 @@ urlpatterns = [
     ##################
     # Your URLs here #
     ##################
+    path('create_artist', views.create_artist, name='create_artist'),
+    path('delete_artist', views.delete_artist, name='delete_artist')
 ]
