@@ -55,7 +55,7 @@
       Picture url: <input type="url" name='picture_url'>
     </div>
     <div>
-      Popularity: <input type="number" name='popularity'> 
+      Popularity: <input type="number" name='popularity' value='0'> 
     </div>
     <div>
       Genre: <input type="text" name='genre'>
@@ -75,9 +75,10 @@
       <li>
         <label>{{ artist.artistic_name }}</label>
         <!-- Form for deleting an Artist -->
-        <form action="" method='POST' class='inline'> <!--  Add propper URL in form's action -->
+        <form action="{% url 'delete_artist' %}" method='POST' class='inine'>
           {% csrf_token %}
-          <!-- Add here the fields for the 'Delete Artist' form -->
+          <input type="hidden" name="artist_id" value="{{ artist.id }}">
+          <input type="submit" name='delete_artist' value='Delete'>
         </form>
         <ul>
           {% for song in artist.song_set.all %}
