@@ -6,6 +6,7 @@ GENRE_CHOICES = (
     ("pop", "Pop"),
 )
 
+
 class Artist(models.Model):
     artistic_name = models.CharField(max_length=255)
     first_name = models.CharField(max_length=255, blank=True)
@@ -16,6 +17,6 @@ class Artist(models.Model):
 
 
 class Song(models.Model):
-    # artist = ...
+    artist = models.ForeignKey('Artist', on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     album_name = models.CharField(max_length=255, blank=True)
