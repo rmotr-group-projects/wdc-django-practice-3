@@ -3,7 +3,7 @@ from artists.models import Artist, Song
 
 def task_1_artist_exists():
     """Should return True if there's any artist called Eric Clapton, or False otherwise"""
-    # HINT: Use .exists() function
+    # HINT: Use .exists() function --
     return Artist.objects.filter(artistic_name='Eric Clapton').exists()
 
 
