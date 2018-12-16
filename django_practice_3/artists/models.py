@@ -11,11 +11,11 @@ class Artist(models.Model):
     first_name = models.CharField(max_length=255, blank=True)
     last_name = models.CharField(max_length=255, blank=True)
     picture_url = models.URLField(blank=True)
-    popularity = models.IntegerField(blank=True)
+    popularity = models.IntegerField(blank=True, null=True)
     genre = models.CharField(choices=GENRE_CHOICES, max_length=255, blank=True)
 
 
 class Song(models.Model):
-    # artist = ...
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     album_name = models.CharField(max_length=255, blank=True)
