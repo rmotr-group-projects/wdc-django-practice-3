@@ -12,4 +12,4 @@ class ArtistAdmin(admin.ModelAdmin):
 @admin.register(Song)
 class SongAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'album_name')
-    list_filter = ('album_name',)
+list_filter = ('album_name',)
