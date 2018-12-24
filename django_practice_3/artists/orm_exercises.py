@@ -22,13 +22,13 @@ def task_3_last_artist_ordered():
 def task_4_artist_songs_contains():
     """Should return all songs from artist whose artistic names contains the letter X"""
     # HINT: use double underscores "__" to navigate through model's FKs and fields
-    return Song.objects.filter(artist__artistic_name__icontains='x')
+    return Song.objects.filter(artist__artistic_name__contains='X')
 
 
 def task_5_songs_exclude():
     """Should return all songs excluding the ones that contains the word 'Castle' in its title"""
     # HINT: Use .exclude() function
-    return Song.objects.exclude(title__icontains='Castle')
+    return Song.objects.all().exclude(title__contains='Castle')
 
 
 def task_6_artist_name_starts_with():
@@ -43,15 +43,9 @@ def task_7_get_or_create_artist():
         it doesn't. Return True if you had to create, or False otherwise.
     """
     # HINT: Use django `get_or_create()` function
-    obj, created = Artist.objects.get_or_create(
-        artistic_name='Eric Clapton',
-        defaults={
-            'first_name': 'Eric',
-            'last_name': 'Clapton',
-            'popularity': 95
-        },
-    )
-    return created
+    created_or_not = Artist.objects.get_or_create(
+        artistic_name='Eric Clapton', popularity=88)
+    return created_or_not[1]
 
 
 def task_8_artist_songs_reverse_relationship():
@@ -66,10 +60,7 @@ def task_8_artist_songs_reverse_relationship():
 def task_9_update_song_artist():
     """Should create a new Artist and assign it as the owner of the song called Superstition"""
     # step 1: create the artist
-    artist = Artist.objects.create(
-        artistic_name='B.B. King',
-        popularity=95
-    )
+    artist = Artist.objects.create(artistic_name='Robby Bob', popularity=100)
 
     # step 2: get the song called 'Superstition'
     song = Song.objects.get(title='Superstition')

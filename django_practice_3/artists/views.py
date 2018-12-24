@@ -39,26 +39,25 @@ def delete_song(request):
 
 def create_artist(request):
     artistic_name = request.POST['artistic_name']
-    first_name = request.POST.get('first_name', '')
-    last_name = request.POST.get('last_name', '')
-    picture_url = request.POST.get('picture_url', '')
-    popularity = request.POST.get('popularity', 0)
-    genre = request.POST.get('genre', '')
+    first_name = request.POST['first_name']
+    last_name = request.POST['last_name']
+    picture_url = request.POST['picture_url']
+    popularity = request.POST['popularity']
+    genre = request.POST['genre']
     
      # validate required fields
     if not artistic_name:
         return redirect('artists')
-
-    popularity = int(popularity)
+        
 
     Artist.objects.create(
         artistic_name=artistic_name,
         first_name=first_name,
         last_name=last_name,
         picture_url=picture_url,
-        popularity=popularity,
-        genre=genre
-    )
+        popularity=int(popularity),
+        genre=genre)
+        
     return redirect('artists')
 
 
